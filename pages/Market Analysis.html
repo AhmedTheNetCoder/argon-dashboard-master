@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <!-- Ensure the viewport meta tag is correct for responsiveness -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes, user-scalable=yes, initial-scale=1, maximum-scale=1">
+  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
+  <link rel="icon" type="image/svg+xml" href="../assets/img/Finance.svg">
+  <title>
+    Financyte - Market Analysis
+  </title>
+  <!-- Fonts and icons -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+  <!-- Nucleo Icons -->
+  <link href="https://demos.creative-tim.com/argon-dashboard-pro/assets/css/nucleo-icons.css" rel="stylesheet" />
+  <link href="https://demos.creative-tim.com/argon-dashboard-pro/assets/css/nucleo-svg.css" rel="stylesheet" />
+  <!-- Font Awesome Icons -->
+  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+  <!-- CSS Files -->
+  <link id="pagestyle" href="../assets/css/argon-dashboard.css?v=2.1.0" rel="stylesheet" />
+
+  <style>
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    span,
+    a,
+    li,
+    td,
+    th,
+    .text-dark,
+    .text-white {
+      color: #4C4B16 !important;
+    }
+
+    .text-white {
+      color: #4C4B16 !important;
+    }
+
+    .dashboard-title {
+      color: #ffffff !important;
+    }
+
+    .breadcrumb .breadcrumb-item a,
+    .breadcrumb .breadcrumb-item.active {
+      color: #ffffff !important;
+    }
+
+    .sme-support-card {
+      background-color: #f4f4f4;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin-bottom: 15px;
+      padding: 20px;
+    }
+
+    .sme-support-card h4 {
+      color: #4C4B16;
+      text-align: center;
+      margin-bottom: 15px;
+    }
+
+    .sme-support-card p {
+      color: #333;
+      text-align: justify;
+    }
+
+    .sme-support-card ul {
+      color: #333;
+      list-style-type: disc;
+      padding-left: 20px;
+    }
+
+    /* Hamburger Icon */
+    .hamburger {
+      font-size: 25px;
+      position: fixed;
+      right: 10px;
+      top: 20px;
+      color: #ffffff;
+      z-index: 1001;
+      cursor: pointer;
+    }
+
+    /* Overlay styles */
+    #overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: none;
+      z-index: 1000;
+    }
+
+    /* Sidebar styles */
+    #sidenav-main {
+      transition: transform 0.3s ease-in-out;
+      /* Visible by default */
+      z-index: 1001;
+    }
+
+    /* Adjust main content when sidebar is open */
+    body.sidebar-open .main-content {
+      margin-left: 250px;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 991px) {
+      /* Hide sidebar on small screens by default */
+      #sidenav-main {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 250px;
+        transform: translateX(-250px);
+      }
+
+      /* When the sidebar is open */
+      #sidenav-main.open {
+        transform: translateX(0);
+      }
+
+      /* Adjust main content when sidebar is open */
+      body.sidebar-open .main-content {
+        margin-left: 0;
+      }
+    }
+  </style>
+</head>
+
+<body class="g-sidenav-show bg-gray-100">
+  <div class="min-height-300 position-absolute w-100" style="background-color: #4C4B16;"></div>
+  <!-- Hamburger Icon -->
+  <div class="hamburger" id="hamburger-icon">
+    <i class="fas fa-bars"></i>
+  </div>
+  <!-- Overlay -->
+  <div id="overlay"></div>
+  <aside class="sidenav bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4"
+    id="sidenav-main">
+    <div class="sidenav-header">
+      <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
+        aria-hidden="true" id="iconSidenav"></i>
+      <a class="navbar-brand m-0" href="#" target="_blank">
+        <img src="../assets/img/Finance.svg" width="26px" height="26px" class="navbar-brand-img h-100" alt="main_logo">
+        <span class="ms-1 font-weight-bold">Financyte</span>
+      </a>
+    </div>
+    <hr class="horizontal dark mt-0">
+    <div class="collapse navbar-collapse w-auto" id="sidenav-collapse-main">
+      <ul class="navbar-nav">
+        <!-- [Your existing nav items] -->
+        <li class="nav-item">
+          <a class="nav-link" href="../pages/dashboard.html">
+            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="ni ni-tv-2 text-dark text-sm opacity-10"></i>
+            </div>
+            <span class="nav-link-text ms-1">Dashboard</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../pages/Financial Health Analysis.html">
+            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="ni ni-calendar-grid-58 text-dark text-sm opacity-10"></i>
+            </div>
+            <span class="nav-link-text ms-1" style="color: #ffffff;">Financial Health Analysis</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="../pages/Market Analysis.html">
+            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="ni ni-app text-dark text-sm opacity-10"></i>
+            </div>
+            <span class="nav-link-text ms-1">Market Analysis</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="../pages/Loan Grant Recommendation.html">
+            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="ni ni-money-coins text-dark text-sm opacity-10"></i>
+            </div>
+            <span class="nav-link-text ms-1">Loan/Grant</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../pages/ChatBOT.html">
+            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="ni ni-chat-round text-dark text-sm opacity-10"></i>
+            </div>
+            <span class="nav-link-text ms-1">ChatBot</span>
+          </a>
+        </li>
+        <!-- [Other nav items...] -->
+      </ul>
+    </div>
+    <div class="sidenav-footer mx-3">
+      <!-- [Your existing footer content] -->
+    </div>
+  </aside>
+  <main class="main-content position-relative border-radius-lg">
+    <!-- Navbar -->
+    <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur"
+      data-scroll="false">
+      <div class="container-fluid py-1 px-3">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+            <li class="breadcrumb-item text-sm"><a class="opacity-5 text-white" href="javascript:;">Pages</a></li>
+            <li class="breadcrumb-item text-sm text-white active" aria-current="page">Market Analysis</li>
+          </ol>
+          <h6 class="font-weight-bolder text-white mb-0 dashboard-title">Market Analysis</h6>
+        </nav>
+        <!-- Remove hamburger from navbar since we have a fixed one -->
+        <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+          <div class="input-group">
+            <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
+            <input type="text" class="form-control" placeholder="Type here...">
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- New SME Support Rule - Oman 2024 Section -->
+    <div class="container my-4">
+      <div class="sme-support-card" style="background-color: #ffffff;">
+        <h4>New SME Support Rule - Oman 2024</h4>
+        <p>Oman Investment Authority (OIA) prioritizes SME support in key sectors aligned with Vision 2040, including
+          technology, sustainable energy, and tourism. The initiative aims to drive growth in strategic sectors, offering
+          SMEs a pathway to enhanced support and expansion.</p>
+        <h5>Key Benefits:</h5>
+        <ul>
+          <li><strong>Funding Opportunities:</strong> SMEs in priority sectors can access grants and resources.</li>
+          <li><strong>Application:</strong> Apply through the Ministry of Commerce or OPAZ for eligibility.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Main Market Analysis Content -->
+    <div class="container-fluid py-4">
+      <!-- First Row -->
+      <div class="row">
+        <!-- Total Monthly Sales Trend -->
+        <div class="col-lg-12 mb-4">
+          <div class="card">
+            <div class="card-header pb-0">
+              <h6>Total Monthly Sales</h6>
+            </div>
+            <div class="card-body">
+              <div id="monthly-sales-chart"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Second Row -->
+      <div class="row">
+        <!-- Sales by Category -->
+        <div class="col-md-6 col-sm-12">
+          <div class="card">
+            <div class="card-header pb-0">
+              <h6>Sales by Category</h6>
+            </div>
+            <div class="card-body">
+              <div id="category-sales-chart"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Popular Products -->
+        <div class="col-md-6 col-sm-12">
+          <div class="card">
+            <div class="card-header pb-0">
+              <h6>Top Selling Products</h6>
+            </div>
+            <div class="card-body">
+              <div id="popular-products-chart"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Third Row -->
+      <div class="row">
+        <!-- Revenue Forecast -->
+        <div class="col-lg-12 mt-4">
+          <div class="card">
+            <div class="card-header pb-0">
+              <h6>Revenue Forecast</h6>
+            </div>
+            <div class="card-body">
+              <div id="revenue-forecast-chart"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Core JS Files and Plotly -->
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const hamburgerIcon = document.getElementById('hamburger-icon');
+      const sidenav = document.getElementById('sidenav-main');
+      const overlay = document.getElementById('overlay');
+
+      function toggleSidebar() {
+        const isOpen = sidenav.classList.contains('open');
+        if (isOpen) {
+          sidenav.classList.remove('open');
+          overlay.style.display = 'none';
+          document.body.classList.remove('sidebar-open');
+        } else {
+          sidenav.classList.add('open');
+          overlay.style.display = 'block';
+          document.body.classList.add('sidebar-open');
+        }
+      }
+
+      hamburgerIcon.addEventListener('click', toggleSidebar);
+      overlay.addEventListener('click', toggleSidebar);
+    });
+
+    // Monthly Sales Chart with Custom Colors
+    var monthlySalesData = {
+      x: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+      y: [45000, 48000, 50000, 52000, 53000, 60000, 65000, 62000, 58000, 60000, 62000, 64000],
+      type: 'bar',
+      marker: { color: 'rgb(63, 81, 181)' }
+    };
+    Plotly.newPlot('monthly-sales-chart', [monthlySalesData], { title: 'Monthly Sales (OMR)', autosize: true }, { responsive: true });
+
+    // Sales by Category Chart with Custom Colors
+    var categorySalesData = {
+      values: [20, 15, 30, 10, 25],
+      labels: ['Produce', 'Dairy', 'Meat', 'Canned Goods', 'Bakery'],
+      type: 'pie',
+      marker: {
+        colors: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF']
+      }
+    };
+    Plotly.newPlot('category-sales-chart', [categorySalesData], { title: 'Sales by Category', autosize: true }, { responsive: true });
+
+    // Popular Products Chart with Custom Colors
+    var popularProductsData = {
+      x: ['Bananas', 'Milk', 'Bread', 'Chicken', 'Eggs'],
+      y: [1200, 980, 1150, 900, 860],
+      type: 'bar',
+      marker: { color: 'rgb(76, 175, 80)' }
+    };
+    Plotly.newPlot('popular-products-chart', [popularProductsData], { title: 'Top Selling Products', autosize: true }, { responsive: true });
+
+    // Revenue Forecast Chart with Custom Colors
+    var revenueForecastData = {
+      x: [2022, 2023, 2024, 2025, 2026],
+      y: [550, 600, 700, 850, 900],
+      type: 'scatter',
+      mode: 'lines+markers',
+      marker: { color: 'rgb(255, 87, 34)' },
+      line: { color: 'rgb(255, 87, 34)' }
+    };
+    Plotly.newPlot('revenue-forecast-chart', [revenueForecastData], { title: 'Revenue Forecast (OMR in thousands)', autosize: true }, { responsive: true });
+  </script>
+  <!-- Chatbot Script -->
+  <script>
+    window.embeddedChatbotConfig = {
+      chatbotId: "ztLOoHSXEPdjvnCb_ttUB",
+      domain: "www.chatbase.co"
+    }
+  </script>
+  <script src="https://www.chatbase.co/embed.min.js" chatbotId="ztLOoHSXEPdjvnCb_ttUB" domain="www.chatbase.co"
+    defer>
+  </script>
+</body>
+
+</html>
